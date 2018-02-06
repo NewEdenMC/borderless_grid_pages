@@ -1,0 +1,8 @@
+name: Borderless Grids
+description: A Drupal module that compliments the neweden_borderless theme and Panelizer by adding additional features and configuration
+package: New Eden Specific
+type: module
+core: 8.x
+
+dependencies:
+- neweden_borderless
