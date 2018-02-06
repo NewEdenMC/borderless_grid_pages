@@ -3,6 +3,3 @@ description: A Drupal module that compliments the neweden_borderless theme and P
 package: New Eden Specific
 type: module
 core: 8.x
-
-dependencies:
-- neweden_borderless
