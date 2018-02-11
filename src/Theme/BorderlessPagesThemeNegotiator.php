@@ -28,8 +28,15 @@ class BorderlessPagesThemeNegotiator implements ThemeNegotiatorInterface {
         if ($node == null || !($node instanceof Node))
             return false;
 
-        $type = NodeType::load($node->getType());
-        return $type->getThirdPartySetting('borderless_grid_pages', 'is_borderless_page', 0);
+        $parts = explode('/', $route_match->getRouteObject()->getPath());
+        $count = count($parts) - 1; // -1 since the leading / causes [0] to be empty
+
+        if ($count == 2 || $parts[$count] == 'view') {
+            $type = NodeType::load($node->getType());
+            return $type->getThirdPartySetting('borderless_grid_pages', 'is_borderless_page', 0);
+        }
+
+        return false;
     }
 
     /**
