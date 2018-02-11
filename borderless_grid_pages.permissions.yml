@@ -1,0 +1,3 @@
+administer borderless grid pages global settings:
+  title: 'Administer Borderless Grid Pages Global Settings'
+  description: 'Allows changing global settings for the Borderless Grid Pages module, this permission only effects access to the settings on the Borderless Grid Pages Global Settings page, and not access to the settings for each content type.'

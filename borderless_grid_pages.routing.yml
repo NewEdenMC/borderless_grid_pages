@@ -1,0 +1,7 @@
+borderless_grid_pages.settings:
+  path: '/admin/config/content/borderless'
+  defaults:
+    _form: 'Drupal\borderless_grid_pages\Form\SettingsForm'
+    _title: 'Borderless Grid Pages Global Settings'
+  requirements:
+    _permission: 'administer borderless grid pages global settings'
