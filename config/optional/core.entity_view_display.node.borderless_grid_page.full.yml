@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.borderless_grid_page.panelizer
+    - node.type.borderless_grid_page
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        id: panels_variant
+        label: Default
+        uuid: 340cf7a8-95a0-4fcf-917e-3b6d82978714
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: ''
+        storage_id: ''
+        builder: ipe
+        pattern: panelizer
+id: node.borderless_grid_page.full
+targetEntityType: node
+bundle: borderless_grid_page
+mode: full
+hidden:
+  panelizer: true

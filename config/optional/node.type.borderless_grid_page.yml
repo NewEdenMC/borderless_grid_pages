@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - borderless_grid_pages
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  borderless_grid_pages:
+    is_borderless_page: 1
+name: 'Borderless Grid Page'
+type: borderless_grid_page
+description: 'Used for the home page and similar pages, uses Panels to allow dragging and dropping of UI Elements.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
