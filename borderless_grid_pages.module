@@ -1,0 +1,39 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use \Drupal\node\NodeTypeInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for \Drupal\node\NodeTypeForm.
+ *
+ * Addss option to set if nodes should be shown borderless
+ *
+ * @see NodeTypeForm::form()
+ */
+function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
+    /** @var NodeTypeInterface $type */
+    $type = $form_state->getFormObject()->getEntity();
+    $form['borderless_grid_pages'] = [
+        '#type' => 'details',
+        '#title' => t('Borderless Grid Pages Settings'),
+        '#group' => 'additional_settings',
+        'is_borderless_page' => [
+            '#type' => 'checkbox',
+            '#title' => t('Show content of this type as Borderless Pages'),
+            '#description' => t('Will make any nodes of this content type render using the Borderless Theme.'),
+            '#default_value' => $type->getThirdPartySetting('borderless_grid_pages', 'is_borderless_page', 0),
+            '#weight' => 0
+        ],
+    ];
+    $form['#entity_builders'][] = 'borderless_grid_pages_form_node_type_form_builder';
+}
+
+/**
+ * Entity builder for the node type form with borderless options.
+ *
+ * @see borderless_grid_pages_form_node_type_form_alter()
+ */
+function borderless_grid_pages_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+    $value = $form_state->getValue('is_borderless_page');
+    $type->setThirdPartySetting('borderless_grid_pages', 'is_borderless_page', $value);
+}
