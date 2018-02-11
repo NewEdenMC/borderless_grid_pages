@@ -6,13 +6,21 @@ use \Drupal\node\NodeTypeInterface;
 /**
  * Implements hook_form_FORM_ID_alter() for \Drupal\node\NodeTypeForm.
  *
- * Addss option to set if nodes should be shown borderless
+ * Adds option to set if nodes should be shown borderless
+ *
+ * @param array $form
+ *   The form array
+ * @param FormStateInterface $form_state
+ *   The form state object
  *
  * @see NodeTypeForm::form()
  */
 function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
-    /** @var NodeTypeInterface $type */
-    $type = $form_state->getFormObject()->getEntity();
+    /** @var \Drupal\node\NodeTypeForm $type_form */
+    $type_form = $form_state->getFormObject();
+    /** @var \Drupal\node\NodeTypeInterface $type */
+    $type = $type_form->getEntity();
+
     $form['borderless_grid_pages'] = [
         '#type' => 'details',
         '#title' => t('Borderless Grid Pages Settings'),
@@ -25,15 +33,25 @@ function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterf
             '#weight' => 0
         ],
     ];
-    $form['#entity_builders'][] = 'borderless_grid_pages_form_node_type_form_builder';
+    $form['#entity_builders'][] = '_borderless_grid_pages_form_node_type_form_builder';
 }
 
 /**
  * Entity builder for the node type form with borderless options.
  *
+ * @param $entity_type
+ *   ?
+ * @param NodeTypeInterface $type
+ *   The Node Type
+ * @param array $form
+ *   The form array
+ * @param FormStateInterface $form_state
+ *   The form state object
+ *
  * @see borderless_grid_pages_form_node_type_form_alter()
  */
-function borderless_grid_pages_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+function _borderless_grid_pages_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+    var_dump($entity_type);
     $value = $form_state->getValue('is_borderless_page');
     $type->setThirdPartySetting('borderless_grid_pages', 'is_borderless_page', $value);
 }
