@@ -32,6 +32,13 @@ function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterf
             '#default_value' => $type->getThirdPartySetting('borderless_grid_pages', 'is_borderless_page', 0),
             '#weight' => 0
         ],
+        'only_on_node_view' => [
+            '#type' => 'checkbox',
+            '#title' => t('Only show Borderless Theme when viewing a node'),
+            '#description' => t('The Borderless Theme will only be shown if the user is viewing a node. In other words this setting means that the Borderless Theme will not be shown if the user is on the Edit, Delete, Revisions or other similar contextual tab, with the exception of the View tab. For the purposes of this setting viewing a node revision is considered the same as viewing a node.'),
+            '#default_value' => $type->getThirdPartySetting('borderless_grid_pages', 'only_on_node_view', 0),
+            '#weight' => 0
+        ],
     ];
     $form['#entity_builders'][] = '_borderless_grid_pages_form_node_type_form_builder';
 }
@@ -51,7 +58,6 @@ function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterf
  * @see borderless_grid_pages_form_node_type_form_alter()
  */
 function _borderless_grid_pages_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
-    var_dump($entity_type);
-    $value = $form_state->getValue('is_borderless_page');
-    $type->setThirdPartySetting('borderless_grid_pages', 'is_borderless_page', $value);
+    $type->setThirdPartySetting('borderless_grid_pages', 'is_borderless_page', $form_state->getValue('is_borderless_page'));
+    $type->setThirdPartySetting('borderless_grid_pages', 'only_on_node_view', $form_state->getValue('only_on_node_view'));
 }
