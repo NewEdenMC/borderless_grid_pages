@@ -1,0 +1,6 @@
+services:
+  theme.negotiator.borderless_theme:
+    class: Drupal\borderless_grid_pages\Theme\BorderlessPagesThemeNegotiator
+    arguments: []
+    tags:
+      - { name: theme_negotiator, priority: 10 }
