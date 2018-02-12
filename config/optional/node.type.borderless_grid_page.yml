@@ -11,6 +11,7 @@ third_party_settings:
     parent: 'main:'
   borderless_grid_pages:
     is_borderless_page: 1
+    only_on_node_view: 1
 name: 'Borderless Grid Page'
 type: borderless_grid_page
 description: 'Used for the home page and similar pages, uses Panels to allow dragging and dropping of UI Elements.'
