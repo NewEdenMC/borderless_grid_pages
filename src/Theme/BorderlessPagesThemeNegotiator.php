@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\borderless_grid_pages\Theme;
+namespace Drupal\grid_pages\Theme;
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Theme\ThemeNegotiatorInterface;
@@ -30,7 +30,7 @@ class BorderlessPagesThemeNegotiator implements ThemeNegotiatorInterface {
 
         $type = NodeType::load($node->getType());
 
-        if ($type->getThirdPartySetting('borderless_grid_pages', 'only_on_node_view', 0)) {
+        if ($type->getThirdPartySetting('grid_pages', 'only_on_node_view', 0)) {
             $parts = explode('/', $route_match->getRouteObject()->getPath());
             $count = count($parts) - 1; // -1 since the leading / causes [0] to be empty
 
@@ -38,7 +38,7 @@ class BorderlessPagesThemeNegotiator implements ThemeNegotiatorInterface {
                 return false;
         }
 
-        return $type->getThirdPartySetting('borderless_grid_pages', 'is_borderless_page', 0);
+        return $type->getThirdPartySetting('grid_pages', 'is_borderless_page', 0);
     }
 
     /**
@@ -51,7 +51,7 @@ class BorderlessPagesThemeNegotiator implements ThemeNegotiatorInterface {
      *   The name of the Borderless Theme or NULL if the module config happens to not contain a value
      */
     public function determineActiveTheme(RouteMatchInterface $route_match) {
-        return \Drupal::config('borderless_grid_pages.settings')->get('theme_machine_name');
+        return \Drupal::config('grid_pages.settings')->get('theme_machine_name');
     }
 
 }

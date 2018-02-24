@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - borderless_grid_pages
+    - grid_pages
     - menu_ui
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-  borderless_grid_pages:
+  grid_pages:
     is_borderless_page: 1
     only_on_node_view: 1
 name: 'Borderless Grid Page'

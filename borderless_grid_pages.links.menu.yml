@@ -1,5 +1,5 @@
-borderless_grid_pages.settings:
-  title: 'Borderless Grid Pages Global Settings'
-  description: 'Configure global settings for the Borderless Grid Pages module.'
-  route_name: borderless_grid_pages.settings
+grid_pages.settings:
+  title: 'Grid Pages Global Settings'
+  description: 'Configure global settings for the Grid Pages module.'
+  route_name: grid_pages.settings
   parent: 'system.admin_config_content'

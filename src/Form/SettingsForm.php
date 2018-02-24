@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\borderless_grid_pages\Form;
+namespace Drupal\grid_pages\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 class SettingsForm extends ConfigFormBase {
 
-    private $baseName = 'borderless_grid_pages';
+    private $baseName = 'grid_pages';
 
     /**
      * {@inheritdoc}

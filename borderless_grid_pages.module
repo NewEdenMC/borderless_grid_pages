@@ -15,21 +15,21 @@ use \Drupal\node\NodeTypeInterface;
  *
  * @see NodeTypeForm::form()
  */
-function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
+function grid_pages_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
     /** @var \Drupal\node\NodeTypeForm $type_form */
     $type_form = $form_state->getFormObject();
     /** @var \Drupal\node\NodeTypeInterface $type */
     $type = $type_form->getEntity();
 
-    $form['borderless_grid_pages'] = [
+    $form['grid_pages'] = [
         '#type' => 'details',
-        '#title' => t('Borderless Grid Pages Settings'),
+        '#title' => t('Grid Pages Settings'),
         '#group' => 'additional_settings',
         'is_borderless_page' => [
             '#type' => 'checkbox',
             '#title' => t('Show content of this type as Borderless Pages'),
             '#description' => t('Will make any nodes of this content type render using the Borderless Theme.'),
-            '#default_value' => $type->getThirdPartySetting('borderless_grid_pages', 'is_borderless_page', 0),
+            '#default_value' => $type->getThirdPartySetting('grid_pages', 'is_borderless_page', 0),
             '#weight' => 0,
         ],
         'borderless_settings' => [
@@ -44,11 +44,11 @@ function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterf
                 '#type' => 'checkbox',
                 '#title' => t('Only show Borderless Theme when viewing a node'),
                 '#description' => t('The Borderless Theme will only be shown if the user is viewing a node. In other words this setting means that the Borderless Theme will not be shown if the user is on the Edit, Delete, Revisions or other similar contextual tab, with the exception of the View tab. For the purposes of this setting viewing a node revision is considered the same as viewing a node.'),
-                '#default_value' => $type->getThirdPartySetting('borderless_grid_pages', 'only_on_node_view', 0),
+                '#default_value' => $type->getThirdPartySetting('grid_pages', 'only_on_node_view', 0),
             ],
         ],
     ];
-    $form['#entity_builders'][] = '_borderless_grid_pages_form_node_type_form_builder';
+    $form['#entity_builders'][] = '_grid_pages_form_node_type_form_builder';
 }
 
 /**
@@ -63,9 +63,9 @@ function borderless_grid_pages_form_node_type_form_alter(&$form, FormStateInterf
  * @param FormStateInterface $form_state
  *   The form state object
  *
- * @see borderless_grid_pages_form_node_type_form_alter()
+ * @see grid_pages_form_node_type_form_alter()
  */
-function _borderless_grid_pages_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
-    $type->setThirdPartySetting('borderless_grid_pages', 'is_borderless_page', $form_state->getValue('is_borderless_page'));
-    $type->setThirdPartySetting('borderless_grid_pages', 'only_on_node_view', $form_state->getValue('only_on_node_view'));
+function _grid_pages_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+    $type->setThirdPartySetting('grid_pages', 'is_borderless_page', $form_state->getValue('is_borderless_page'));
+    $type->setThirdPartySetting('grid_pages', 'only_on_node_view', $form_state->getValue('only_on_node_view'));
 }
