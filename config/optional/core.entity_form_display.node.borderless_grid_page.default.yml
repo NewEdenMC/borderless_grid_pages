@@ -2,8 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.grid_page.field_summary
-    - field.field.node.grid_page.panelizer
+    - field.field.node.borderless_grid_page.field_summary
+    - field.field.node.borderless_grid_page.panelizer
     - node.type.borderless_grid_page
   module:
     - path
@@ -20,13 +20,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_summary:
+    type: text_textarea
     weight: 1
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   path:
     type: path
     weight: 6

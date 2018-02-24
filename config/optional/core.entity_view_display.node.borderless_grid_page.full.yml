@@ -3,7 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.grid_page.panelizer
+    - field.field.node.borderless_grid_page.field_summary
+    - field.field.node.borderless_grid_page.panelizer
     - node.type.borderless_grid_page
   module:
     - panelizer
@@ -11,14 +12,13 @@ dependencies:
 third_party_settings:
   panelizer:
     enable: true
-    custom: false
-    allow: false
+    custom: true
+    allow: true
     default: default
     displays:
       default:
         id: panels_variant
         label: Default
-        uuid: 340cf7a8-95a0-4fcf-917e-3b6d82978714
         weight: 0
         layout: layout_onecol
         layout_settings: {  }
@@ -31,5 +31,8 @@ id: node.borderless_grid_page.full
 targetEntityType: node
 bundle: borderless_grid_page
 mode: full
+content: {  }
 hidden:
+  field_summary: true
+  links: true
   panelizer: true

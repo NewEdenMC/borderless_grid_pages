@@ -2,24 +2,31 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.grid_page.field_summary
-    - field.field.node.grid_page.panelizer
+    - field.field.node.borderless_grid_page.field_summary
+    - field.field.node.borderless_grid_page.panelizer
     - node.type.borderless_grid_page
   module:
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.borderless_grid_page.default
 targetEntityType: node
 bundle: borderless_grid_page
 mode: default
 content:
   field_summary:
+    type: text_default
     weight: 0
-    label: visually_hidden
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
   links:
     weight: 1
     region: content

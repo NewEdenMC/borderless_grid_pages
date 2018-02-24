@@ -1,5 +1,5 @@
 name: Grid Pages
-description: A Drupal module that provides Grid Pages using Panelizer as new content types, it also compliments the neweden_borderless theme
+description: Provides Grid Pages using Panelizer as new content types, it also compliments the neweden_borderless theme
 package: New Eden Specific
 type: module
 core: 8.x
