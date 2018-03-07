@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.grid_page.field_summary
+    - field.field.node.grid_page.panelizer
+    - node.type.grid_page
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.grid_page.default
+targetEntityType: node
+bundle: grid_page
+mode: default
+content:
+  field_summary:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  panelizer: true

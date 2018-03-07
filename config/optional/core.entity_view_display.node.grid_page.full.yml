@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.grid_page.field_summary
+    - field.field.node.grid_page.panelizer
+    - node.type.grid_page
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: true
+    allow: true
+    default: default
+    displays:
+      default:
+        id: panels_variant
+        label: Default
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: ''
+        storage_id: ''
+        builder: ipe
+        pattern: panelizer
+id: node.grid_page.full
+targetEntityType: node
+bundle: grid_page
+mode: full
+content: {  }
+hidden:
+  field_summary: true
+  links: true
+  panelizer: true

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - grid_pages
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  grid_pages:
+    is_borderless_page: 0
+    only_on_node_view: 0
+name: 'Grid Page'
+type: grid_page
+description: 'Uses Panels to allow dragging and dropping of UI Elements.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
